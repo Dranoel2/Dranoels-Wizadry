@@ -1,5 +1,4 @@
 plugins {
-    kotlin("jvm") version "1.5.10"
     id("fabric-loom")
     `maven-publish`
     java
@@ -8,21 +7,29 @@ plugins {
 group = property("maven_group")!!
 version = property("mod_version")!!
 
+val minecraft_version: String by project
+val yarn_mappings: String by project
+val loader_version: String by project
+val fabric_kotlin_version: String by project
+val fabric_api_version: String by project
+val cardinal_components_version: String by project
+
 repositories {
-    // Add repositories to retrieve artifacts from in here.
-    // You should only use this when depending on other mods because
-    // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
-    // See https://docs.gradle.org/current/userguide/declaring_repositories.html
-    // for more information about repositories.
+    maven("https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/")
+    maven("https://ladysnake.jfrog.io/artifactory/mods")
 }
 
 dependencies {
-    minecraft("com.mojang:minecraft:${property("minecraft_version")}")
-    mappings("net.fabricmc:yarn:${property("yarn_mappings")}:v2")
-    modImplementation("net.fabricmc:fabric-loader:${property("loader_version")}")
+    minecraft("com.mojang:minecraft:$minecraft_version")
+    mappings("net.fabricmc:yarn:$yarn_mappings:v2")
+    modImplementation("net.fabricmc:fabric-loader:$loader_version")
 
-    modImplementation("net.fabricmc:fabric-language-kotlin:${property("fabric_kotlin_version")}")
-    modImplementation("net.fabricmc.fabric-api:fabric-api:${property("fabric_api_version")}")
+    modImplementation("net.fabricmc.fabric-api:fabric-api:$fabric_api_version")
+    modImplementation("software.bernie.geckolib:geckolib-fabric-1.17:3.0.29:dev")
+    modApi("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:$cardinal_components_version")
+    modApi("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-util:$cardinal_components_version")
+    modApi("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-item:$cardinal_components_version")
+    modApi("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-entity:$cardinal_components_version")
 }
 
 tasks {
@@ -44,9 +51,6 @@ tasks {
                 artifact(remapJar) {
                     builtBy(remapJar)
                 }
-                artifact(kotlinSourcesJar) {
-                    builtBy(remapSourcesJar)
-                }
             }
         }
 
@@ -56,11 +60,6 @@ tasks {
             // mavenLocal()
         }
     }
-
-    compileKotlin {
-        kotlinOptions.jvmTarget = "16"
-    }
-
 }
 
 java {

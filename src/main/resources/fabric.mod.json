@@ -1,40 +1,61 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "dranoels_wizadry",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "custom": {
+    "cardinal-components": [
+      "dranoels_wizadry:mana",
+      "dranoels_wizadry:unlocked_spells",
+      "dranoels_wizadry:selected_spell"
+    ]
+  },
+
+  "name": "Dranoel's Wizadry",
+  "description": "Adds various magical elements to Minecraft.",
   "authors": [
-    "Me!"
+    "Dranoel"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://dranoel.net/",
+    "sources": "https://github.com/Dranoel/Dranoels-Wizadry"
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/dranoels_wizadry/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
       {
-        "adapter": "kotlin",
-        "value": "net.fabricmc.example.ExampleMod"
+        "value": "net.dranoel.wizadry.entrypoints.DranoelsWizadry"
+      }
+    ],
+    "client": [
+      {
+        "value": "net.dranoel.wizadry.entrypoints.DranoelsWizadryClient"
+      }
+    ],
+    "cardinal-components-entity": [
+      {
+        "value": "net.dranoel.wizadry.entrypoints.DranoelsWizadryComponents"
+      }
+    ],
+    "cardinal-components-item": [
+      {
+        "value": "net.dranoel.wizadry.entrypoints.DranoelsWizadryComponents"
       }
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "dranoels_wizadry.mixins.json"
   ],
 
   "depends": {
     "fabricloader": ">=0.11.3",
     "fabric": "*",
     "minecraft": "1.17.x",
-    "java": ">=16",
-    "fabric-language-kotlin": ">=1.6.1+kotlin.1.5.20"
+    "java": ">=16"
   },
   "suggests": {
     "another-mod": "*"
