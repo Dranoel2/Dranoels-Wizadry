@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WAW",
+    " W ",
+    " W "
+  ],
+  "key": {
+    "W": {
+      "tag": "minecraft:logs"
+    },
+    "A": {
+      "item": "dranoels_wizadry:crude_polished_amethyst"
+    }
+  },
+  "result": {
+    "item": "dranoels_wizadry:crude_staff"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "dranoels_wizadry:polished_amethyst_shard"
+    },
+    {
+      "item": "dranoels_wizadry:polished_amethyst_shard"
+    },
+    {
+      "item": "minecraft:slime_ball"
+    }
+  ],
+  "result": {
+    "item": "dranoels_wizadry:crude_polished_amethyst"
+  }
+}

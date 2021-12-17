@@ -19,23 +19,20 @@ import net.minecraft.util.registry.Registry;
 
 public class DranoelsWizadry implements ModInitializer {
 
-    private Item registerItem(String id, Item item) {
-        return Registry.register(Registry.ITEM, identifier(id), item);
-    }
-    private Block registerBlock(String id, Block block) {
-        return Registry.register(Registry.BLOCK, identifier(id), block);
-    }
-    private Item registerBlockItem(String id, Block block) {
-        return Registry.register(Registry.ITEM, identifier(id), new BlockItem(block, new FabricItemSettings().group(GROUP)));
-    }
-    private Spell registerSpell(String id, Spell spell) {
-        return Registry.register(Registries.SPELL, identifier(id), spell);
-    }    public static final String MOD_ID = "dranoels_wizadry";
+    private Item registerItem(String id, Item item) { return Registry.register(Registry.ITEM, identifier(id), item); }
+    private Block registerBlock(String id, Block block) { return Registry.register(Registry.BLOCK, identifier(id), block); }
+    private Item registerBlockItem(String id, Block block) { return registerItem(id, new BlockItem(block, new FabricItemSettings().group(GROUP))); }
+    private Spell registerSpell(String id, Spell spell) { return Registry.register(Registries.SPELL, identifier(id), spell); }
+
+    public static final String MOD_ID = "dranoels_wizadry";
 
     public static Spell ABSORB_MAGIC_SPELL;
     public static Spell RELEASE_MAGIC_SPELL;
 
     public static Item CRUDE_STAFF_ITEM;
+    public static Item POLISHED_AMETHYST_ITEM;
+    public static Item POLISHED_AMETHYST_SHARD_ITEM;
+    public static Item CRUDE_POLISHED_AMETHYST_ITEM;
 
     public static ItemGroup GROUP = FabricItemGroupBuilder.build(DranoelsWizadry.identifier("item_group"), () -> new ItemStack(CRUDE_STAFF_ITEM));
 
@@ -49,6 +46,9 @@ public class DranoelsWizadry implements ModInitializer {
         RELEASE_MAGIC_SPELL = registerSpell("release_magic", new ReleaseMagicSpell());
 
         CRUDE_STAFF_ITEM = registerItem("crude_staff", new CrudeStaffItem());
+        POLISHED_AMETHYST_ITEM = registerItem("polished_amethyst", new Item(new FabricItemSettings().group(ItemGroup.MATERIALS)));
+        POLISHED_AMETHYST_SHARD_ITEM = registerItem("polished_amethyst_shard", new Item(new FabricItemSettings().group(ItemGroup.MATERIALS)));
+        CRUDE_POLISHED_AMETHYST_ITEM = registerItem("crude_polished_amethyst", new Item(new FabricItemSettings().group(ItemGroup.MATERIALS)));
 
         ServerPlayNetworking.registerGlobalReceiver(identifier("next_spell"), (server, player, handler, buf, responseSender) -> {
             DranoelsWizadryComponents.SELECTED_SPELL.get(player).nextSpell();
