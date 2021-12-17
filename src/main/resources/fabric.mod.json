@@ -21,7 +21,7 @@
     "sources": "https://github.com/Dranoel/Dranoels-Wizadry"
   },
 
-  "license": "CC0-1.0",
+  "license": "MIT",
   "icon": "assets/dranoels_wizadry/icon.png",
 
   "environment": "*",
