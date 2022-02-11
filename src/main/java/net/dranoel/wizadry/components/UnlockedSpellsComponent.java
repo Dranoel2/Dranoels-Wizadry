@@ -38,6 +38,10 @@ public class UnlockedSpellsComponent implements ComponentV3, AutoSyncedComponent
         DranoelsWizadryComponents.UNLOCKED_SPELLS.sync(provider);
     }
 
+    public void addSpell(Identifier spell) {
+        this.value.add(spell);
+    }
+
     @Override
     public void readFromNbt(NbtCompound tag) {
         String string = tag.getString("value");

@@ -1,6 +1,7 @@
 package net.dranoel.wizadry.entrypoints;
 
 import net.dranoel.wizadry.items.CrudeStaffItem;
+import net.dranoel.wizadry.items.ScrollItem;
 import net.dranoel.wizadry.spells.AbsorbMagicSpell;
 import net.dranoel.wizadry.spells.ReleaseMagicSpell;
 import net.dranoel.wizadry.spells.Spell;
@@ -33,6 +34,7 @@ public class DranoelsWizadry implements ModInitializer {
     public static Item POLISHED_AMETHYST_ITEM;
     public static Item POLISHED_AMETHYST_SHARD_ITEM;
     public static Item CRUDE_POLISHED_AMETHYST_ITEM;
+    public static Item SCROLL_ITEM;
 
     public static ItemGroup GROUP = FabricItemGroupBuilder.build(DranoelsWizadry.identifier("item_group"), () -> new ItemStack(CRUDE_STAFF_ITEM));
 
@@ -49,6 +51,7 @@ public class DranoelsWizadry implements ModInitializer {
         POLISHED_AMETHYST_ITEM = registerItem("polished_amethyst", new Item(new FabricItemSettings().group(ItemGroup.MATERIALS)));
         POLISHED_AMETHYST_SHARD_ITEM = registerItem("polished_amethyst_shard", new Item(new FabricItemSettings().group(ItemGroup.MATERIALS)));
         CRUDE_POLISHED_AMETHYST_ITEM = registerItem("crude_polished_amethyst", new Item(new FabricItemSettings().group(ItemGroup.MATERIALS)));
+        SCROLL_ITEM = registerItem("scroll", new ScrollItem());
 
         ServerPlayNetworking.registerGlobalReceiver(identifier("next_spell"), (server, player, handler, buf, responseSender) -> {
             DranoelsWizadryComponents.SELECTED_SPELL.get(player).nextSpell();

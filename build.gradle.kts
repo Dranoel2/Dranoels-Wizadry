@@ -25,11 +25,11 @@ dependencies {
     modImplementation("net.fabricmc:fabric-loader:$loader_version")
 
     modImplementation("net.fabricmc.fabric-api:fabric-api:$fabric_api_version")
-    modImplementation("software.bernie.geckolib:geckolib-fabric-1.17:3.0.29:dev")
-    modApi("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:$cardinal_components_version")
-    modApi("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-util:$cardinal_components_version")
-    modApi("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-item:$cardinal_components_version")
-    modApi("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-entity:$cardinal_components_version")
+    modImplementation("software.bernie.geckolib:geckolib-fabric-1.18:3.0.32")
+    modImplementation("dev.onyxstudios.cardinal-components-api:cardinal-components-base:$cardinal_components_version")
+    // modImplementation("dev.onyxstudios.cardinal-components-api:cardinal-components-util:$cardinal_components_version")
+    modImplementation("dev.onyxstudios.cardinal-components-api:cardinal-components-item:$cardinal_components_version")
+    modImplementation("dev.onyxstudios.cardinal-components-api:cardinal-components-entity:$cardinal_components_version")
 }
 
 tasks {

@@ -5,5 +5,9 @@
   "spell.dranoels_wizadry.release_magic": "Release Magic",
   "item.dranoels_wizadry.polished_amethyst": "Polished Amethyst",
   "item.dranoels_wizadry.polished_amethyst_shard": "Polished Amethyst Shard",
-  "item.dranoels_wizadry.crude_polished_amethyst": "Crude Polished Amethyst"
+  "item.dranoels_wizadry.crude_polished_amethyst": "Crude Polished Amethyst",
+  "item.dranoels_wizadry.scroll": "Spell Scroll",
+  "tooltip.dranoels_wizadry.scroll_spell": "Spell: %s",
+  "message.dranoels_wizadry.new_spell_unlocked": "§aNew Spell Unlocked: %s",
+  "message.dranoels_wizadry.spell_already_unlocked": "§cYou have already unlocked this spell!"
 }

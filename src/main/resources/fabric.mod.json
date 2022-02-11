@@ -7,7 +7,8 @@
     "cardinal-components": [
       "dranoels_wizadry:mana",
       "dranoels_wizadry:unlocked_spells",
-      "dranoels_wizadry:selected_spell"
+      "dranoels_wizadry:selected_spell",
+      "dranoels_wizadry:scroll_spell"
     ]
   },
 
@@ -54,8 +55,8 @@
   "depends": {
     "fabricloader": ">=0.11.3",
     "fabric": "*",
-    "minecraft": "1.17.x",
-    "java": ">=16"
+    "minecraft": "1.18.*",
+    "java": ">=17"
   },
   "suggests": {
     "another-mod": "*"
